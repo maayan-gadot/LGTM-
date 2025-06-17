@@ -1,0 +1,643 @@
+traces:
+  - traceType: "Target Interception"
+    start: { source: "Radar", destination: "C2", messageType: "ThreatDetection" }
+    end: { source: "Radar", destination: "C2", messageType: "ImpactDetection" }
+    spans:
+      - name: "Span-1"
+        start: { source: "Radar", destination: "C2", messageType: "ThreatDetection" }
+        end: { source: "C2", destination: "SA", messageType: "UpdateSituationalAwareness" }
+      - name: "Span-2"
+        start: { source: "C2", destination: "Launcher", messageType: "LaunchCommand" }
+        end: { source: "Launcher", destination: "Interceptor", messageType: "LaunchConfirmation" }
+      - name: "Span-3"
+        start: { source: "Interceptor", destination: "SA", messageType: "InterceptorStatus" }
+        end: { source: "Radar", destination: "C2", messageType: "ImpactDetection" }
+
+  - traceType: "Field Change Trace"
+    start: { source: "DP", destination: "MP", messageType: "ChangeStat", attributes: { field: "Rank", from: "0.0", to: "1.0" } }
+    end: { source: "DP", destination: "MP", messageType: "ChangeStat", attributes: { field: "Rank", from: "2.0", to: "1.0" } }
+    spans:
+      - name: "RankWatcherA"
+        attributes: { field: "Rank", from: "0.0", to: "1.0" }
+      - name: "RankWatcherB"
+        attributes: { field: "Rank", from: "1.0", to: "2.0" }
+      - name: "IdWatcherA"
+        attributes: { field: "TargetID", from: "50.0", to: "0.0" }
+
+# ////////////////////////////////////////////////
+
+
+
+
+# traces:
+#   - traceType: "Target Interception"
+#     start: { source: "Radar", destination: "C2", messageType: "ThreatDetection" }
+#     end: { source: "Radar", destination: "C2", messageType: "ImpactDetection" }
+#     spans:
+#       - name: "Span-1"
+#         start: { source: "Radar", destination: "C2", messageType: "ThreatDetection" }
+#         end: { source: "C2", destination: "SA", messageType: "UpdateSituationalAwareness" }
+#       - name: "Span-2"
+#         start: { source: "C2", destination: "Launcher", messageType: "LaunchCommand" }
+#         end: { source: "Launcher", destination: "Interceptor", messageType: "LaunchConfirmation" }
+#       - name: "span-3"
+#         start: { source: "Interceptor", destination: "SA", messageType: "InterceptorStatus" }
+#         end: { source: "Radar", destination: "C2", messageType: "ImpactDetection" }
+   
+
+#   - traceType: "Target Classification"
+#     start: { source: "Radar", destination: "C2", messageType: "TargetDetection" }
+#     end: { source: "SA", destination: "C2", messageType: "ClassificationDecision" }
+#     spans:
+#       - name: "Span-1"
+#         start: { source: "Radar", destination: "C2", messageType: "TargetDetection" }
+#         end: { source: "C2", destination: "SA", messageType: "ClassificationRequest" }
+#       - name: "Span-2"
+#         start: { source: "SA", destination: "Intelligence", messageType: "ThreatCheck" }
+#         end: { source: "Intelligence", destination: "SA", messageType: "ThreatResponse" }
+#       - name: "Span-3"
+#         start: { source: "SA", destination: "Radar", messageType: "AdditionalDataRequest" }
+#         end: { source: "Radar", destination: "SA", messageType: "AdditionalDataResponse" }
+#       - name: "Span-4"
+#         start: { source: "SA", destination: "C2", messageType: "ClassificationDecision" }
+#         end: { source: "SA", destination: "C2", messageType: "ClassificationDecision" }
+
+#   - traceType: "Interceptor Malfunction"
+#     start: { source: "Interceptor", destination: "Launcher", messageType: "ErrorReport" }
+#     end: { source: "C2", destination: "Launcher", messageType: "MissionAbort" }
+#     spans:
+#       - name: "Span-1"
+#         start: { source: "Interceptor", destination: "Launcher", messageType: "ErrorReport" }
+#         end: { source: "Launcher", destination: "C2", messageType: "FaultAlert" }
+#       - name: "Span-2"
+#         start: { source: "C2", destination: "SA", messageType: "UpdateSituationalAwareness" }
+#         end: { source: "SA", destination: "Radar", messageType: "StatusCheck" }
+#       - name: "Span-3"
+#         start: { source: "Radar", destination: "C2", messageType: "StatusUpdate" }
+#         end: { source: "C2", destination: "Launcher", messageType: "MissionAbort" }
+
+#   - traceType: "Field Change Trace"
+#     start: { source: "DP", destination: "MP", messageType: "ChangeStatStart" }
+#     end: { source: "DP", destination: "MP", messageType: "ChangeStatEnd" }
+#     spans:
+#       - name: "RankWatcherA"
+#         field: "Rank"
+#         from: "0.0"
+#         to: "1.0"
+
+#       - name: "RankWatcherB"
+#         field: "Rank"
+#         from: "1.0"
+#         to: "2.0"
+
+#       - name: "RankWatcherC"
+#         field: "Rank"
+#         from: "2.0"
+#         to: "1.0"
+
+#       - name: "IdWatcher"
+#         field: TargetID  
+#         from: "50.0"
+#         to: "0.0"
+
+# --------------
+# traces:
+#   - traceType: "Target Interception"
+#     start:
+#       source: "Radar"
+#       destination: "C2"
+#       messageType: "ThreatDetection"
+#     end:
+#       source: "Radar"
+#       destination: "C2"
+#       messageType: "ImpactDetection"
+#     spans:
+#       - name: "Process Started"
+#         start:
+#           source: "Radar"
+#           destination: "C2"
+#           messageType: "ThreatDetection"
+#         end:
+#           source: "C2"
+#           destination: "SA"
+#           messageType: "UpdateSituationalAwareness"
+#       - name: "Launch Process Initiated"
+#         start:
+#           source: "C2"
+#           destination: "Launcher"
+#           messageType: "LaunchCommand"
+#         end:
+#           source: "Launcher"
+#           destination: "Interceptor"
+#           messageType: "LaunchConfirmation"
+
+#   - traceType: "Target Classification"
+#     start:
+#       source: "Radar"
+#       destination: "C2"
+#       messageType: "TargetDetection"
+#     end:
+#       source: "SA"
+#       destination: "C2"
+#       messageType: "ClassificationDecision"
+#     spans:
+#       - name: "Threat Identified"
+#         start:
+#           source: "Radar"
+#           destination: "C2"
+#           messageType: "TargetDetection"
+#         end:
+#           source: "C2"
+#           destination: "SA"
+#           messageType: "ClassificationRequest"
+#       - name: "Intelligence Check"
+#         start:
+#           source: "SA"
+#           destination: "Intelligence"
+#           messageType: "ThreatCheck"
+#         end:
+#           source: "Intelligence"
+#           destination: "SA"
+#           messageType: "ThreatResponse"
+
+
+
+
+# //--------------------------------------------------------------------
+#  code B - Generate traces with spans, extracted from yaml file.
+# traces:
+#   - traceId: "Trace-1"
+#     spans:
+#       - name: "ThreatDetection"
+#         source: "Radar"
+#         destination: "C2"
+#         attributes:
+#           key_a: "span1"
+#           key_b: "value_b"
+#       - name: "UpdateSituationalAwareness"
+#         source: "C2"
+#         destination: "SA"
+#         attributes:
+#           key_a: "span2"
+#           key_b: "value_b"
+#       - name: "LaunchCommand"
+#         source: "C2"
+#         destination: "Launcher"
+#         attributes:
+#           key_a: "span3"
+#           key_b: "value_b"
+#       - name: "LaunchConfirmation"
+#         source: "Launcher"
+#         destination: "Interceptor"
+#         attributes:
+#           key_a: "span4"
+#           key_b: "value_b"
+#       - name: "InterceptorStatus"
+#         source: "Interceptor"
+#         destination: "SA"
+#         attributes:
+#           key_a: "span5"
+#           key_b: "value_b"
+#       - name: "ImpactDetection"
+#         source: "Radar"
+#         destination: "C2"
+#         attributes:
+#           key_a: "span6"
+#           key_b: "value_b"
+
+#   - traceId: "Trace-10"
+#     spans:
+#       - name: "ThreatDetection"
+#         source: "Radar"
+#         destination: "C2"
+#         attributes:
+#           key_a: "span7"
+#           key_b: "value_b"
+#       - name: "UpdateSituationalAwareness"
+#         source: "C2"
+#         destination: "SA"
+#         attributes:
+#           key_a: "span8"
+#           key_b: "value_b"
+#       - name: "LaunchCommand"
+#         source: "C2"
+#         destination: "Launcher"
+#         attributes:
+#           key_a: "span9"
+#           key_b: "value_b"
+#       - name: "LaunchConfirmation"
+#         source: "Launcher"
+#         destination: "Interceptor"
+#         attributes:
+#           key_a: "span10"
+#           key_b: "value_b"
+#       - name: "InterceptorStatus"
+#         source: "Interceptor"
+#         destination: "SA"
+#         attributes:
+#           key_a: "span11"
+#           key_b: "value_b"
+#       - name: "ImpactDetection"
+#         source: "Radar"
+#         destination: "C2"
+#         attributes:
+#           key_a: "span12"
+#           key_b: "value_b"
+
+#   - traceId: "Trace-100"
+#     spans:
+#       - name: "TargetDetection"
+#         source: "Radar"
+#         destination: "C2"
+#         attributes:
+#           key_a: "span13"
+#           key_b: "value_b"
+#       - name: "ClassificationRequest"
+#         source: "SA"
+#         destination: "C2"
+#         attributes:
+#           key_a: "span14"
+#           key_b: "value_b"
+#       - name: "ThreatCheck"
+#         source: "SA"
+#         destination: "Intelligence"
+#         attributes:
+#           key_a: "span15"
+#           key_b: "value_b"
+#       - name: "ThreatResponse"
+#         source: "Intelligence"
+#         destination: "SA"
+#         attributes:
+#           key_a: "span16"
+#           key_b: "value_b"
+#       - name: "AdditionalDataRequest"
+#         source: "SA"
+#         destination: "Radar"
+#         attributes:
+#           key_a: "span17"
+#           key_b: "value_b"
+#       - name: "AdditionalDataResponse"
+#         source: "SA"
+#         destination: "Radar"
+#         attributes:
+#           key_a: "span18"
+#           key_b: "value_b"
+#       - name: "ClassificationDecision"
+#         source: "C2"
+#         destination: "SA"
+#         attributes:
+#           key_a: "span19"
+#           key_b: "value_b"
+
+#   - traceId: "Trace-11"
+#     spans:
+#       - name: "ThreatDetection"
+#         source: "Radar"
+#         destination: "C2"
+#         attributes:
+#           key_a: "span13"
+#           key_b: "value_b"
+#       - name: "UpdateSituationalAwareness"
+#         source: "C2"
+#         destination: "SA"
+#         attributes:
+#           key_a: "span13"
+#           key_b: "value_b"
+#       - name: "LaunchCommand"
+#         source: "C2"
+#         destination: "Launcher"
+#         attributes:
+#           key_a: "span13"
+#           key_b: "value_b"
+#       - name: "LaunchConfirmation"
+#         source: "Launcher"
+#         destination: "Interceptor"
+#         attributes:
+#           key_a: "span13"
+#           key_b: "value_b"
+#       - name: "InterceptorStatus"
+#         source: "Interceptor"
+#         destination: "SA"
+#         attributes:
+#           key_a: "span13"
+#           key_b: "value_b"
+#       - name: "ImpactDetection"
+#         source: "Radar"
+#         destination: "C2"
+#         attributes:
+#           key_a: "span13"
+#           key_b: "value_b"
+
+#   - traceId: "Trace-12"
+#     spans:
+#       - name: "ThreatDetection"
+#         source: "C2"
+#         destination: "Radar"
+#         attributes:
+#           key_a: "span13"
+#           key_b: "value_b"
+#       - name: "UpdateSituationalAwareness"
+#         source: "C2"
+#         destination: "SA"
+#         attributes:
+#           key_a: "span13"
+#           key_b: "value_b"
+#       - name: "LaunchCommand"
+#         source: "C2"
+#         destination: "Launcher"
+#         attributes:
+#           key_a: "span13"
+#           key_b: "value_b"
+#       - name: "LaunchConfirmation"
+#         source: "Launcher"
+#         destination: "Interceptor"
+#         attributes:
+#           key_a: "span13"
+#           key_b: "value_b"
+#       - name: "InterceptorStatus"
+#         source: "Interceptor"
+#         destination: "SA"
+#         attributes:
+#           key_a: "span13"
+#           key_b: "value_b"
+#       - name: "ImpactDetection"
+#         source: "Radar"
+#         destination: "C2"
+#         attributes:
+#           key_a: "span13"
+#           key_b: "value_b"
+
+#   - traceId: "Trace-13"
+#     spans:
+#       - name: "ThreatDetection"
+#         source: "Radar"
+#         destination: "C2"
+#         attributes:
+#           key_a: "span13"
+#           key_b: "value_b"
+#       - name: "UpdateSituationalAwareness"
+#         source: "C2"
+#         destination: "SA"
+#         attributes:
+#           key_a: "span13"
+#           key_b: "value_b"
+#       - name: "LaunchCommand"
+#         source: "C2"
+#         destination: "Launcher"
+#         attributes:
+#           key_a: "span13"
+#           key_b: "value_b"
+#       - name: "LaunchConfirmation"
+#         source: "Launcher"
+#         destination: "Interceptor"
+#         attributes:
+#           key_a: "span13"
+#           key_b: "value_b"
+#       - name: "InterceptorStatus"
+#         source: "Interceptor"
+#         destination: "SA"
+#         attributes:
+#           key_a: "span13"
+#           key_b: "value_b"
+#       - name: "ImpactDetection"
+#         source: "Radar"
+#         destination: "C2"
+#         attributes:
+#           key_a: "span13"
+#           key_b: "value_b"
+
+#   - traceId: "Trace-14"
+#     spans:
+#       - name: "ThreatDetection"
+#         source: "Radar"
+#         destination: "C2"
+#         attributes:
+#           key_a: "span13"
+#           key_b: "value_b"
+#       - name: "UpdateSituationalAwareness"
+#         source: "C2"
+#         destination: "SA"
+#         attributes:
+#           key_a: "span13"
+#           key_b: "value_b"
+#       - name: "LaunchCommand"
+#         source: "C2"
+#         destination: "Launcher"
+#         attributes:
+#           key_a: "span13"
+#           key_b: "value_b"
+#       - name: "LaunchConfirmation"
+#         source: "Launcher"
+#         destination: "Interceptor"
+#         attributes:
+#           key_a: "span13"
+#           key_b: "value_b"
+#       - name: "InterceptorStatus"
+#         source: "Interceptor"
+#         destination: "SA"
+#         attributes:
+#           key_a: "span13"
+#           key_b: "value_b"
+#       - name: "ImpactDetection"
+#         source: "Radar"
+#         destination: "C2"
+#         attributes:
+#           key_a: "span13"
+#           key_b: "value_b"
+
+
+    
+# //--------------------------------------------------------------------
+#  code A - Generate a trace (one) with spans, extracted from yaml file.
+# traces:
+#   - traceId: "Trace-1"
+#     spans:
+#       - name: "ThreatDetection"
+#         source: "Radar"
+#         destination: "C2"
+#         attributes:
+#           key_a: "span1"
+#           key_b: "value_b"
+#       - name: "UpdateSituationalAwareness"
+#         source: "C2"
+#         destination: "SA"
+#         attributes:
+#           key_a: "span2"
+#           key_b: "value_b"
+#       - name: "LaunchCommand"
+#         source: "C2"
+#         destination: "Launcher"
+#         attributes:
+#           key_a: "span3"
+#           key_b: "value_b"
+#       - name: "LaunchConfirmation"
+#         source: "Launcher"
+#         destination: "Interceptor"
+#         attributes:
+#           key_a: "span4"
+#           key_b: "value_b"
+#       - name: "InterceptorStatus"
+#         source: "Interceptor"
+#         destination: "SA"
+#         attributes:
+#           key_a: "span5"
+#           key_b: "value_b"
+
+#   - traceId: "Trace-2"
+#     spans:
+#       - name: "TargetDetection"
+#         source: "Radar"
+#         destination: "C2"
+#         attributes:
+#           key_a: "span15"
+#           key_b: "value_b"
+#       - name: "ClassificationDecision"
+#         source: "SA"
+#         destination: "C2"
+#         attributes:
+#           key_a: "span16"
+#           key_b: "value_b"
+#       - name: "ThreatCheck"
+#         source: "SA"
+#         destination: "Intelligence"
+#         attributes:
+#           key_a: "span14"
+#           key_b: "value_b"
+#       - name: "ThreatResponse"
+#         source: "Intelligence"
+#         destination: "SA"
+#         attributes:
+#           key_a: "span9"
+#           key_b: "value_b"
+#       - name: "AdditionalDataRequest"
+#         source: "SA"
+#         destination: "Radar"
+#         attributes:
+#           key_a: "span10"
+#           key_b: "value_b"
+
+
+
+# //------------------------------------------------------
+# traces:
+#   spans:
+#     - name: "ThreatDetection"
+#       source: "Radar"
+#       destination: "C2"
+#       attributes:
+#         key_a: "span1"
+#         key_b: "value_b"
+#     - name: "UpdateSituationalAwareness"
+#       source: "C2"
+#       destination: "SA"
+#       attributes:
+#         key_a: "span2"
+#         key_b: "value_b"
+#     - name: "LaunchCommand"
+#       source: "C2"
+#       destination: "Launcher"
+#       attributes:
+#         key_a: "span3"
+#         key_b: "value_b"
+#     - name: "LaunchConfirmation"
+#       source: "Launcher"
+#       destination: "Interceptor"
+#       attributes:
+#         key_a: "span4"
+#         key_b: "value_b"
+#     - name: "InterceptorStatus"
+#       source: "Interceptor"
+#       destination: "SA"
+#       attributes:
+#         key_a: "span5"
+#         key_b: "value_b"
+#     - name: "ImpactDetection"
+#       source: "Radar"
+#       destination: "C2"
+#       attributes:
+#         key_a: "span6"
+#         key_b: "value_b"
+#     - name: "ClassificationRequest"
+#       source: "C2"
+#       destination: "SA"
+#       attributes:
+#         key_a: "span7"
+#         key_b: "value_b"
+#     - name: "AdditionalDataResponse"
+#       source: "Radar"
+#       destination: "SA"
+#       attributes:
+#         key_a: "span8"
+#         key_b: "value_b"
+#     - name: "ThreatResponse"
+#       source: "Intelligence"
+#       destination: "SA"
+#       attributes:
+#         key_a: "span9"
+#         key_b: "value_b"
+#     - name: "AdditionalDataRequest"
+#       source: "SA"
+#       destination: "Radar"
+#       attributes:
+#         key_a: "span10"
+#         key_b: "value_b"
+#     - name: "StatusCheck"
+#       source: "SA"
+#       destination: "Radar"
+#       attributes:
+#         key_a: "span11"
+#         key_b: "value_b"
+#     - name: "MissionAbort"
+#       source: "C2"
+#       destination: "Launcher"
+#       attributes:
+#         key_a: "span12"
+#         key_b: "value_b"
+#     - name: "ErrorReport"
+#       source: "Interceptor"
+#       destination: "Launcher"
+#       attributes:
+#         key_a: "span13"
+#         key_b: "value_b"
+#     - name: "ThreatCheck"
+#       source: "SA"
+#       destination: "Intelligence"
+#       attributes:
+#         key_a: "span14"
+#         key_b: "value_b"
+#     - name: "TargetDetection"
+#       source: "Radar"
+#       destination: "C2"
+#       attributes:
+#         key_a: "span15"
+#         key_b: "value_b"
+#     - name: "ClassificationDecision"
+#       source: "SA"
+#       destination: "C2"
+#       attributes:
+#         key_a: "span16"
+#         key_b: "value_b"
+#     - name: "FaultAlert"
+#       source: "Launcher"
+#       destination: "C2"
+#       attributes:
+#         key_a: "span17"
+#         key_b: "value_b"
+#     - name: "StatusUpdate"
+#       source: "Radar"
+#       destination: "C2"
+#       attributes:
+#         key_a: "span18"
+#         key_b: "value_b"
+
+
+
+
+# //-------------------------------------------------------------
+    # - name: "N"
+    #   source: "S"
+    #   destination: "D"
+    #   attributes:
+    #     key_a: "value_a"
+    #     key_b: "value_b"
+
