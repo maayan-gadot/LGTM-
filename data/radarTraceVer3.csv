@@ -1,0 +1,71 @@
+Timestamp,MessageType,counter,Source,Destination,TraceID,Field1,Value1,Field2,Value2,Field3,Value3,Field4,Value4,TraceType,Span_Start,Span_End
+2025-03-22T10:00:00Z,ThreatDetection,1,Radar,C2,Trace-1,TargetID,1000,Speed,1065,Altitude,8269,,,Target Interception,Span1: Process Started_Start,
+2025-03-22T10:01:00Z,UpdateSituationalAwareness,2,C2,SA,Trace-1,TargetID,1000,AddedToTacticalView,1,,,,,Target Interception,,Span1: Process Started_End
+2025-03-22T10:02:00Z,LaunchCommand,3,C2,Launcher,Trace-1,TargetID,1000,InterceptorID,5000,,,,,Target Interception,Span2: Launch Process Initiated_Start,
+2025-03-22T10:03:00Z,LaunchConfirmation,4,Launcher,Interceptor,Trace-1,InterceptorID,5000,,,,,,,Target Interception,,Span2: Launch Process Initiated_End
+2025-03-22T10:04:00Z,InterceptorStatus,5,Interceptor,SA,Trace-1,InterceptorID,5000,Speed,987,Altitude,10033,Status,,Target Interception,Span3: Interceptor In Flight_Start,
+2025-03-22T10:05:00Z,ImpactDetection,6,Radar,C2,Trace-1,TargetID,1000,,,,,,,Target Interception,,Span3: Interceptor In Flight_End
+2025-03-22T10:06:00Z,ChangeStat,7,DP,MP,Trace-42,TargetID,20,Rank,0,,,,,RankWatcher,Span4: Interceptor change_Start,
+2025-03-22T10:07:00Z,ChangeStat,8,DP,MP,Trace-42,TargetID,50,Rank,0,,,,,RankWatcher,,
+2025-03-22T10:08:00Z,ChangeStat,9,DP,MP,Trace-42,TargetID,50,Rank,1,,,,,RankWatcher,,
+2025-03-22T10:09:00Z,ChangeStat,10,DP,MP,Trace-42,TargetID,0,Rank,0,,,,,RankWatcher,,
+2025-03-22T10:10:00Z,ChangeStat,11,DP,MP,Trace-42,TargetID,50,Rank,0,,,,,RankWatcher,,
+2025-03-22T10:11:00Z,ChangeStat,12,DP,MP,Trace-42,TargetID,50,Rank,2,,,,,RankWatcher,,
+2025-03-22T10:12:00Z,ChangeStat,13,DP,MP,Trace-42,TargetID,50,Rank,2,,,,,RankWatcher,,
+2025-03-22T10:13:00Z,ChangeStat,14,DP,MP,Trace-42,TargetID,0,Rank,1,,,,,RankWatcher,,Span4: Interceptor change_End
+2025-03-22T10:14:00Z,ThreatDetection,15,Radar,C2,Trace-10,TargetID,1009,Speed,908,Altitude,11005,,,Target Interception,Span1: Process Started_Start,
+2025-03-22T10:15:00Z,UpdateSituationalAwareness,16,C2,SA,Trace-10,TargetID,1009,AddedToTacticalView,1,,,,,Target Interception,,Span1: Process Started_End
+2025-03-22T10:16:00Z,LaunchCommand,17,C2,Launcher,Trace-10,TargetID,1009,InterceptorID,5009,,,,,Target Interception,Span2: Launch Process Initiated_Start,
+2025-03-22T10:17:00Z,LaunchConfirmation,18,Launcher,Interceptor,Trace-10,InterceptorID,5009,,,,,,,Target Interception,,Span2: Launch Process Initiated_End
+2025-03-22T10:18:00Z,InterceptorStatus,19,Interceptor,SA,Trace-10,InterceptorID,5009,Speed,785,Altitude,9113,Status,,Target Interception,Span3: Interceptor In Flight_Start,
+2025-03-22T10:19:00Z,ImpactDetection,20,Radar,C2,Trace-10,TargetID,1009,Condition,,,,,,Target Interception,,Span3: Interceptor In Flight_End
+2025-03-22T10:20:00Z,TargetDetection,21,Radar,C2,Trace-100,TargetID,1049,Speed,982,Altitude,10892,,,Target Classification,Span1: Threat Identified_Start,
+2025-03-22T10:21:00Z,ClassificationRequest,22,C2,SA,Trace-100,TargetID,1049,,,,,,,Target Classification,,Span1: Threat Identified_End
+2025-03-22T10:22:00Z,ThreatCheck,23,SA,Intelligence,Trace-100,TargetID,1049,KnownThreat,0,,,,,Target Classification,Span2: Intelligence Check_Start,
+2025-03-22T10:23:00Z,ThreatResponse,24,Intelligence,SA,Trace-100,TargetID,1049,MatchFound,0,,,,,Target Classification,,Span2: Intelligence Check_End
+2025-03-22T10:24:00Z,AdditionalDataRequest,25,SA,Radar,Trace-100,TargetID,1049,RequestRCS,1,,,,,Target Classification,Span3: Additional Data Requested_Start,
+2025-03-22T10:25:00Z,AdditionalDataResponse,26,Radar,SA,Trace-100,TargetID,1049,RCS,2,TrajectoryChange,0,,,Target Classification,,Span3: Additional Data Requested_End
+2025-03-22T10:26:00Z,ClassificationDecision,27,SA,C2,Trace-100,TargetID,1049,Classification,,,,,,Target Classification,Span4: Target Classification Completed_Start,Span4: Target Classification Completed_End
+2025-03-22T10:27:00Z,ThreatDetection,28,Radar,C2,Trace-2,TargetID,2000,Speed,1065,Altitude,8269,,,Target Interception,Span1: Process Started_Start,
+2025-03-22T10:28:00Z,UpdateSituationalAwareness,29,C2,SA,Trace-2,TargetID,2000,AddedToTacticalView,1,,,,,Target Interception,,Span1: Process Started_End
+2025-03-22T10:29:00Z,LaunchCommand,30,C2,Launcher,Trace-2,TargetID,2000,InterceptorID,5000,,,,,Target Interception,Span2: Launch Process Initiated_Start,
+2025-03-22T10:30:00Z,LaunchConfirmation,31,Launcher,Interceptor,Trace-2,InterceptorID,6000,,,,,,,Target Interception,,Span2: Launch Process Initiated_End
+2025-03-22T10:31:00Z,InterceptorStatus,32,Interceptor,SA,Trace-2,InterceptorID,6000,Speed,987,Altitude,10033,Status,,Target Interception,Span3: Interceptor In Flight_Start,
+2025-03-22T10:32:00Z,ImpactDetection,33,Radar,C2,Trace-2,TargetID,2000,Condition,,,,,,Target Interception,,Span3: Interceptor In Flight_End
+2025-03-22T10:33:00Z,ThreatDetection,34,Radar,C2,Trace-11,TargetID,1010,Speed,1167,Altitude,11307,,,Target Interception,Span1: Process Started_Start,
+2025-03-22T10:34:00Z,UpdateSituationalAwareness,35,C2,SA,Trace-11,TargetID,1010,AddedToTacticalView,1,,,,,Target Interception,,Span1: Process Started_End
+2025-03-22T10:35:00Z,LaunchCommand,36,C2,Launcher,Trace-11,TargetID,1010,InterceptorID,5010,,,,,Target Interception,Span2: Launch Process Initiated_Start,
+2025-03-22T10:36:00Z,LaunchConfirmation,37,Launcher,Interceptor,Trace-11,InterceptorID,5010,,,,,,,Target Interception,,Span2: Launch Process Initiated_End
+2025-03-22T10:37:00Z,InterceptorStatus,38,Interceptor,SA,Trace-11,InterceptorID,5010,Speed,725,Altitude,10851,Status,,Target Interception,Span3: Interceptor In Flight_Start,
+2025-03-22T10:38:00Z,ImpactDetection,39,Radar,C2,Trace-11,TargetID,1010,Condition,,,,,,Target Interception,,Span3: Interceptor In Flight_End
+2025-03-22T10:39:00Z,ThreatDetection,40,Radar,C2,Trace-12,TargetID,1011,Speed,928,Altitude,10750,,,Target Interception,Span1: Process Started_Start,
+2025-03-22T10:40:00Z,UpdateSituationalAwareness,41,C2,SA,Trace-12,TargetID,1011,AddedToTacticalView,1,,,,,Target Interception,,Span1: Process Started_End
+2025-03-22T10:41:00Z,LaunchCommand,42,C2,Launcher,Trace-12,TargetID,1011,InterceptorID,5011,,,,,Target Interception,Span2: Launch Process Initiated_Start,
+2025-03-22T10:42:00Z,LaunchConfirmation,43,Launcher,Interceptor,Trace-12,InterceptorID,5011,,,,,,,Target Interception,,Span2: Launch Process Initiated_End
+2025-03-22T10:43:00Z,InterceptorStatus,44,Interceptor,SA,Trace-12,InterceptorID,5011,Speed,1119,Altitude,9131,Status,,Target Interception,Span3: Interceptor In Flight_Start,
+2025-03-22T10:44:00Z,ImpactDetection,45,Radar,C2,Trace-12,TargetID,1011,Condition,,,,,,Target Interception,,Span3: Interceptor In Flight_End
+2025-03-22T10:45:00Z,ThreatDetection,46,Radar,C2,Trace-13,TargetID,1012,Speed,958,Altitude,9704,,,Target Interception,Span1: Process Started_Start,
+2025-03-22T10:46:00Z,UpdateSituationalAwareness,47,C2,SA,Trace-13,TargetID,1012,AddedToTacticalView,1,,,,,Target Interception,,Span1: Process Started_End
+2025-03-22T10:47:00Z,LaunchCommand,48,C2,Launcher,Trace-13,TargetID,1012,InterceptorID,5012,,,,,Target Interception,Span2: Launch Process Initiated_Start,
+2025-03-22T10:48:00Z,LaunchConfirmation,49,Launcher,Interceptor,Trace-13,InterceptorID,5012,,,,,,,Target Interception,,Span2: Launch Process Initiated_End
+2025-03-22T10:49:00Z,InterceptorStatus,50,Interceptor,SA,Trace-13,InterceptorID,5012,Speed,981,Altitude,8412,Status,,Target Interception,Span3: Interceptor In Flight_Start,
+2025-03-22T10:50:00Z,ImpactDetection,51,Radar,C2,Trace-13,TargetID,1012,Condition,,,,,,Target Interception,,Span3: Interceptor In Flight_End
+2025-03-22T10:51:00Z,ThreatDetection,52,Radar,C2,Trace-14,TargetID,1013,Speed,732,Altitude,8361,,,Target Interception,Span1: Process Started_Start,
+2025-03-22T10:52:00Z,UpdateSituationalAwareness,53,C2,SA,Trace-14,TargetID,1013,AddedToTacticalView,1,,,,,Target Interception,,Span1: Process Started_End
+2025-03-22T10:53:00Z,LaunchCommand,54,C2,Launcher,Trace-14,TargetID,1013,InterceptorID,5013,,,,,Target Interception,Span2: Launch Process Initiated_Start,
+2025-03-22T10:54:00Z,LaunchConfirmation,55,Launcher,Interceptor,Trace-14,InterceptorID,5013,,,,,,,Target Interception,,Span2: Launch Process Initiated_End
+2025-03-22T10:55:00Z,InterceptorStatus,56,Interceptor,SA,Trace-14,InterceptorID,5013,Speed,703,Altitude,11153,Status,,Target Interception,Span3: Interceptor In Flight_Start,
+2025-03-22T10:56:00Z,ImpactDetection,57,Radar,C2,Trace-14,TargetID,1013,Condition,,,,,,Target Interception,,Span3: Interceptor In Flight_End
+2025-03-22T10:57:00Z,ErrorReport,58,Interceptor,Launcher,Trace-150,InterceptorID,6000,FaultType,EngineMalfunction,,,,,Interceptor Malfunction,Span1: Fault Detected_Start,
+2025-03-22T10:58:00Z,FaultAlert,59,Launcher,C2,Trace-150,InterceptorID,6000,Condition,Failed,,,,,Interceptor Malfunction,,Span1: Fault Detected_End
+2025-03-22T10:59:00Z,UpdateSituationalAwareness,60,C2,SA,Trace-150,InterceptorID,6000,MarkedAsFailed,1,,,,,Interceptor Malfunction,Span2: Marking_as_Failed_Start,
+2025-03-22T11:00:00Z,StatusCheck,61,SA,Radar,Trace-150,InterceptorID,6000,Speed,815,Altitude,8386,Status,OffCourse,Interceptor Malfunction,,Span2: Marking as Failed_End
+2025-03-22T11:01:00Z,StatusUpdate,62,Radar,C2,Trace-150,InterceptorID,6000,OffCourse,1,AbortRequired,1,,,Interceptor Malfunction,Span3: Status Update_Start,
+2025-03-22T11:02:00Z,MissionAbort,63,C2,Launcher,Trace-150,InterceptorID,6000,,,,,,,Interceptor Malfunction,,Span3: Status Update_End
+2025-03-22T11:03:00Z,ErrorReport,64,Interceptor,Launcher,Trace-151,InterceptorID,6001,FaultType,EngineMalfunction,,,,,Interceptor Malfunction,Span1: Fault Detected_Start,
+2025-03-22T11:04:00Z,FaultAlert,65,Launcher,C2,Trace-151,InterceptorID,6001,Condition,Failed,,,,,Interceptor Malfunction,,Span1: Fault Detected_End
+2025-03-22T11:05:00Z,UpdateSituationalAwareness,66,C2,SA,Trace-151,InterceptorID,6001,MarkedAsFailed,1,,,,,Interceptor Malfunction,Span2: Marking as Failed_Start,
+2025-03-22T11:06:00Z,StatusCheck,67,SA,Radar,Trace-151,InterceptorID,6001,Speed,1123,Altitude,10711,Status,OffCourse,Interceptor Malfunction,,Span2: Marking as Failed_End
+2025-03-22T11:07:00Z,StatusUpdate,68,Radar,C2,Trace-151,InterceptorID,6001,OffCourse,1,AbortRequired,1,,,Interceptor Malfunction,Span3: Status Update_Start,
+2025-03-22T11:08:00Z,MissionAbort,69,C2,Launcher,Trace-151,InterceptorID,6001,,,,,,,Interceptor Malfunction,,Span3: Status Update_End
+2025-03-22T11:09:00Z,,,,,,,,,,,,,,,,
